@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        /* @media screen and (min-width: 320px) {
+            html {
+                font-size: 50px;
+            }
+        }
+
+        @media screen and (min-width: 360px) {
+            html {
+                font-size: 56.25px;
+            }
+        }
+
+        @media screen and (min-width: 400px) {
+            html {
+                font-size: 62.5px;
+            }
+        }
+
+        @media screen and (min-width: 440px) {
+            html {
+                font-size: 68.75px;
+            }
+        }
+
+        @media screen and (min-width: 480px) {
+            html {
+                font-size: 75px;
+            }
+        }
+
+        @media screen and (min-width: 640px) {
+            html {
+                font-size: 100px;
+            }
+        } */
+        /*
+        缺点：媒体查询不能完全枚举，毕竟android的屏幕尺寸碎片化严重，各种尺寸都有，不能完全覆盖，只能大体覆盖。如果想要精确覆盖要么通过js实现，要么用最新的浏览器已经支持的calc实现。
+        */
+    </style>
+    <script>
+        !(function (doc, win) {
+            var docEle = doc.documentElement,
+                evt = "onorientationchange" in window ? "orientationchange" : "resize",
+                fn = function () {
+                    var width = docEle.clientWidth;
+                    width = width < 320 ? 320 : width;
+                    width = width > 640 ? 640 : width;
+                    width && (docEle.style.fontSize = 100 * (width / 640) + "px");
+                };
+
+            win.addEventListener(evt, fn, false);
+            doc.addEventListener("DOMContentLoaded", fn, false);
+
+        }(document, window));
+    </script>
+</body>
+
+</html>

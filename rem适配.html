@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        header {
+            height: 1.4rem;
+            line-height: 1.4rem;
+            background: #333;
+            color: #fff;
+            text-align: center;
+            font-size: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        header
+    </header>
+    <script>
+        const WIDTH = 750 //设计稿尺寸
+        const setView = () => {
+            document.documentElement.style.fontSize = (100 * screen.width / WIDTH) + 'px'
+        }
+        window.onorientationchange = setView
+        setView()
+    </script>
+</body>
+
+</html>
